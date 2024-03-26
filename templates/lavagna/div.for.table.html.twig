@@ -1,0 +1,48 @@
+<table class="table_for_anomalie" id="table_for_anomalie">
+	<thead>
+		<tr>
+			<th></th>
+			<th>Anomalia</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tr>
+		<td></td>
+		<td><input type="text" id="anomalia_finder"
+			name="anomalia_finder"></td>
+		<td></td>
+		
+	</tr>
+	<tbody id="to_update">
+
+	</tbody>
+</table>
+
+<script>
+$('#anomalia_finder').keyup(function() {
+	
+	$.get("/veicoli/find/all/" +
+		destinazione + "/" + $('#targa_finder').val(), function(data) { //Iterate the groups first. 
+			$('#to_update').html(data);
+		});
+});
+
+
+$('#descrizione_finder').keyup(function() {
+	var targa = ""; 
+	var t = $('#targa_finder'); 
+	if (t.val() == '') { targa = "*"; } 
+	else {
+	  targa = t.val();
+	} 
+	$.get("/veicoli/find/all/" + $('#descrizione_finder').val() +
+			"/" + targa, function(data) { // Iterate the groups first.
+				$('#to_update').html(data);
+  });
+});
+
+
+
+
+
+</script>

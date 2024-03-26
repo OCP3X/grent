@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="GRENT\OccrigheDefault" table="occrighe_default">
+    <id name="idOccrigaDefault" type="integer" column="id_occriga_default">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="codicearti" type="string" column="codicearti" length="20" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="ordine" type="integer" column="ordine" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="conautista" type="boolean" column="conautista" nullable="true"/>
+    <field name="descrPrev" type="string" column="descr_prev" length="200" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

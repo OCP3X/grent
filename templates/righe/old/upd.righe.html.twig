@@ -1,0 +1,17 @@
+{% for riga in righe %}
+			<tr>
+				<td><input type="button" id="update_riga"
+					onclick="location.href='{{ path('app_righe_edit', {'id': riga.id}) }}'"
+					value="modifica" /></td>
+				<td>{{ riga.descrizioneAnomalia}}</td>
+				<td>{{ riga.descrizioneIntervento}}</td>
+				<td>{{ riga.idMeccanico}}</td>
+				<td>{{ riga.stato}}</td>
+				<td><input type="button" id="delete_riga"
+					onclick="location.href='{{ path('app_righe_delete', {'id': riga.id}) }}'"
+					class = "button red" value="cancella" /></td>
+				<td></td>
+			</tr>
+{% endfor %}
+
+

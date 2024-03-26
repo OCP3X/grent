@@ -1,0 +1,258 @@
+{% extends 'base.html.twig' %}
+
+{% block css_pagina %}
+.div_ricerca { display: none; } span { width: 300px; height: 80px;
+display: inline-block; vertical-align: left; line-height: normal;
+margin-left: 10px; }
+
+
+{% endblock %}
+
+{% block jQueryReady %}
+
+$('#list_anomalie').ready(function() {
+  // Handler for .load() called.
+     
+     $.get("/righe/get/anomalia/" + $('#id_teste').val(), function(data) { 
+     
+	  $('#list_anomalie').html(data);
+  });
+});
+
+
+
+
+//Funzioni per gestire il salvataggio in background
+$( '#edit_veicolo' ).focusout(function() { 
+     $.get("/teste/update/record/" + $('#id_teste').val() + "/" + $('#edit_veicolo').val() + "/" + $('#edit_meccanico').val() + "/" + $('#edit_tipo_doc').val(), function(data) { // Iterate the groups first.   
+  });
+});
+
+$( '#show_index' ).click(function() { 
+//alert($('#edit_tipo_doc').val());
+     $.get("/teste/update/record/" + $('#id_teste').val() + "/" + $('#edit_veicolo').val() + "/" + $('#edit_meccanico').val()+ "/" + $('#edit_tipo_doc').val(), function(data) { // Iterate the groups first.   
+  });
+});
+
+//GESTIONE ANOMALIE
+$( '#gestione_anomalie').click(function() {
+     
+     $('.div_gestione_anomalie').toggle();
+});
+
+$('#div_gestione_anomalie').ready(function() {
+  // Handler for .load() called.
+  $('.div_gestione_anomalie').hide();
+});
+
+
+
+
+
+
+
+//Funzione per mostrare/nasconder div
+function functionShowHidden() {
+ if ($('.div_ricerca').is(":visible")) {
+         $('.div_ricerca').hide();
+         $('.div_dettaglio').show();
+         $('.div_dettaglio_anomalie').show();
+         $('.div_button_anomalie').show();
+         $('.div_table_anomalie').show();
+    }
+    else if ($('.div_ricerca').is(":hidden")) {
+      $('#to_update').html = "";
+      $('.div_ricerca').show();
+      $('.div_dettaglio').hide();
+      $('.div_dettaglio_anomalie').hide();
+      $('.div_button_anomalie').hide();
+      $('.div_table_anomalie').hide();
+    }
+}
+
+$('#find_veicoli').click(function() {
+    functionShowHidden();
+	$.get("/veicoli/get/table", function(data) { // Iterate the groups first.
+	$('.div_ricerca').html(data);
+	}); 
+	$.get("/veicoli/find/all/*/*", function(data) { // Iterate the groups first.
+	$('#to_update').html(data);
+	});
+	var val = $('#find_veicoli').val(); 
+	if (val == "chiudi") {
+		$('#find_veicoli').val("ricerca veicoli");
+	} else {
+	  $('#find_veicoli').val("chiudi");
+	}
+});
+
+
+$('#edit_veicolo').focusout(function() {
+	$.getJSON("/veicoli/find/" +
+		$('#edit_veicolo').val(), function(data) { // Iterate the groups first.
+			$('#text_descrizion').val(''); $(data).each(function(index, item) {
+				//each iteration 
+				var descrizione = item.descrizione;
+
+				$('#text_descrizion').val(descrizione);
+		 });
+	});
+});
+
+
+
+function selectVeicoloItem(id) {
+	$.getJSON("/veicoli/find/" + id, function(data) { // Iterate the groups
+		first.$('#text_descrizion').val(''); $(data).each(function(index, item) { // each iteration var descrizione = item.descrizione;
+
+			$('#text_descrizion').val(descrizione);
+		});
+	});
+};
+
+$('#find_anomalia').click(function() {
+   if ($('#edit_veicolo').val() != "") {
+   
+   $.get("/lavagna/get/table", function(data) { // Iterate the groups first.
+	$('.div_ricerca').html(data);
+	functionShowHidden();
+	}); 
+   
+$.get("/lavagna/find/anomalie/veicoli/" + $('#edit_veicolo').val(),
+	function(data) { // Iterate the groups first.
+			$('#to_update').html(data);
+	}); 
+	var val = $('#find_veicoli').val(); if (val == "chiudi") {
+	$('#find_veicoli').val("ricerca veicoli");
+	} else {
+	  $('#find_veicoli').val("chiudi");
+	}
+  }
+});
+
+$('#add_anomalia').click(function() {
+   if ($('#exist_anomalia').val() != "") {
+        if ($('#id_lavagna').val() != -1) {
+        
+          $.get("/righe/add/anomalia/lavagna/" + $('#id_lavagna').val() + "/" + $('#id_teste').val(), function(data) { // Iterate the groups first.
+	      $('#list_anomalie').html(data);
+{# 	      functionShowHidden();#}
+	    }); 
+     }
+   } 
+});
+
+$('#add_new_anomalia').click(function() {
+    
+   if ($('#new_anomalia').val() != "") {
+        $.get("/righe/add/anomalia/" + $('#new_anomalia').val() + "/" + $('#id_des_intervento').val() + "/" +  $('#id_meccanico_righe').val()+ "/" +  $('#id_teste').val(), function(data) { // Iterate the groups first.
+	    $('#list_anomalie').html(data);
+{# 	      functionShowHidden();#}
+	    }); 
+	}
+});
+
+$('#confirm_save').click(function() {
+   //alert("/teste/confirm/" + $('#id_teste').val() + "/" + $('#edit_veicolo').val() + "/" + $('#edit_meccanico').val() + "/" + $('#edit_tipo_doc').val());
+    //alert("/righe/confirm/" + $('#id_teste').val());
+   $.get("/righe/confirm/" + $('#id_teste').val(), function(data) {});  
+   $.get("/teste/confirm/" + $('#id_teste').val() + "/" + $('#edit_veicolo').val() + "/" + $('#edit_meccanico').val() + "/" + $('#edit_tipo_doc').val(), function(data) {});    
+  
+});
+
+$('#cancel_all').click(function() {
+    //alert($('#id_teste').val());
+    $.get("/righe/delete/" + $('#id_teste').val() + "/" +  $('#id_teste_real').val(), function(data) {}); 
+    $.get("/teste/delete/" + $('#id_teste').val(), function(data) {}); 
+});
+
+
+
+{% endblock %}
+
+
+
+{% block body %}
+
+<span><h1>
+		{{title_form}}
+	</h1></span>
+{{ form_start(form) }}
+<span><input type="button" id="confirm_save"
+	onclick="location.href='{{ path('app_teste_index') }}'" value="Conferma tutto" /></span>
+<span><input type="button" id="cancel_all" value="Annulla Modifica"  onclick="location.href='{{ path('app_teste_index') }}'" value="Index" /></span>
+
+<hr></hr>
+<span><input type="button" id="find_veicoli"
+	value="ricerca veicoli" /></span>
+	
+<input type="hidden" id="id_teste" value={{teste.id}} />
+<input type="hidden" id="id_teste_real" value={{teste.idTReal}}/>
+<input type="hidden" id="id_lavagna" value=""/>
+	
+<div class="div_dettaglio">
+	<div class="row">
+		<div class="col">
+			<span>{{ form_row(form.id_veicolo, {'id': 'edit_veicolo'})}}</span> <span>descrizione
+				Veicolo: <input type="text" id="text_descrizion"
+				name="text_descrizion" value="{{veicoli}}" readonly>
+			</span>
+			<div>
+				<span>{{ form_row(form.tipo_doc, { 'label': 'tipo documento: ', 'id': 'edit_tipo_doc' })}}</span>
+			</div>
+			<span>{{ form_row(form.id_meccanico, {'id': 'edit_meccanico'}) }}</span>
+		</div>
+	</div>
+	{{ form_end(form) }}
+</div>
+{# chiusura div dettaglio#}
+
+
+<hr></hr>
+<span class ="div_button_anomalie"><input type="button" id="gestione_anomalie"
+	  value="Gestione Anomalie" /></span>
+<div class="div_gestione_anomalie">
+    <span>meccanico:<input
+		type="number" id="id_meccanico_righe" value="" /></span>
+    <span>descrizione intervento:<input
+		type="text" id="id_des_intervento" value="" /></span>
+	<br><span><input type="button" id="find_anomalia" type="button"
+		value="cerca anomalia esistente da lavagna" /></span> <span>anomalia
+		da lavagna:<input type="text" id="exist_anomalia" value="" readonly />
+	</span> <span><input type="button" id="add_anomalia" type="button"
+		value="aggiungi" /></span>
+	
+	<br><div>
+	 <span>inserisci nuova anomalia:<input
+		type="text" id="new_anomalia" value="" /></span>
+	<span><input type="button" id="add_new_anomalia" type="button"
+		value="crea nuova anomalia" /></span>
+	</div>		
+	 
+</div>
+
+<div class="div_table_anomalie"><table class="table_anomalie_for_veicoli" id="table_anomalie_veicoli">
+		
+		<thead>
+			<tr>
+				<th></th>
+				<th>Anomalie</th>
+				<th>Descrizione Intervento</th>
+				<th>Id Meccanico</th>
+				<th>Stato</th>	
+				<th></th>		
+			</tr>
+		</thead>
+		{# tabella fornita da classe righe#}
+		<tbody id="list_anomalie">
+		</tbody>
+	</table>
+
+</div>
+{# chiusura div div_dettaglio_anomalia#}
+
+<div class="div_ricerca"></div>
+{# chiusura div ricerca#}
+
+
+{% endblock %}

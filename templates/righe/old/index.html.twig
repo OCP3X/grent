@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Righe index{% endblock %}
+
+{% block body %}
+    <h1>Righe index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Id_testa_fk</th>
+                <th>Id_l_fk</th>
+                <th>Descrizione_anomalia</th>
+                <th>Descrizione_intervento</th>
+                <th>Id_meccanico</th>
+                <th>Id_riga_prelievo</th>
+                <th>Data_creazione</th>
+                <th>Data_modifica</th>
+                <th>Utente_creazione</th>
+                <th>Utente_modifica</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for righe in righes %}
+            <tr>
+                <td>{{ righe.id }}</td>
+                <td>{{ righe.idTestaFk }}</td>
+                <td>{{ righe.idLFk }}</td>
+                <td>{{ righe.descrizioneAnomalia }}</td>
+                <td>{{ righe.descrizioneIntervento }}</td>
+                <td>{{ righe.idMeccanico }}</td>
+                <td>{{ righe.idRigaPrelievo }}</td>
+                <td>{{ righe.dataCreazione ? righe.dataCreazione|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ righe.dataModifica ? righe.dataModifica|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ righe.utenteCreazione }}</td>
+                <td>{{ righe.utenteModifica }}</td>
+                <td>
+                    <a href="{{ path('app_righe_show', {'id': righe.id}) }}">show</a>
+                    <a href="{{ path('app_righe_edit', {'id': righe.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_righe_new') }}">Create new</a>
+{% endblock %}

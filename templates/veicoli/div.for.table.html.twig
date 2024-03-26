@@ -1,0 +1,52 @@
+<table class="table_for_veicoli" id="table_for_veicoli">
+	<thead>
+		<tr>
+			<th></th>
+			<th>Descrizione</th>
+			<th>Targa</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tr>
+		<td></td>
+		<td><input type="text" id="descrizione_finder"
+			name="descrizione_finder"></td>
+		<td><input type="text" id="targa_finder" name="targa_finder"></td>
+		<td></td>
+	</tr>
+	<tbody id="to_update">
+
+	</tbody>
+</table>
+
+<script>
+$('#targa_finder').keyup(function() {
+	var destinazione = ""; 
+	var d = $('#descrizione_finder'); 
+	if (d.val() == '') { destinazione = "*"; }
+	else { destinazione = d.val(); } 
+	$.get("/veicoli/find/all/" +
+		destinazione + "/" + $('#targa_finder').val(), function(data) { //Iterate the groups first. 
+			$('#to_update').html(data);
+		});
+});
+
+
+$('#descrizione_finder').keyup(function() {
+	var targa = ""; 
+	var t = $('#targa_finder'); 
+	if (t.val() == '') { targa = "*"; } 
+	else {
+	  targa = t.val();
+	} 
+	$.get("/veicoli/find/all/" + $('#descrizione_finder').val() +
+			"/" + targa, function(data) { // Iterate the groups first.
+				$('#to_update').html(data);
+  });
+});
+
+
+
+
+
+</script>

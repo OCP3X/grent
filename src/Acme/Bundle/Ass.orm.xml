@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="GRENT\Ass" table="ass">
+    <id name="idAss" type="integer" column="id_ass">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="dataAss" type="datetime" column="data_ass" nullable="true"/>
+    <field name="targa" type="string" column="targa" length="10" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="descrizion" type="string" column="descrizion" length="150" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="prezzoun" type="decimal" column="prezzoun" precision="18" scale="2" nullable="true"/>
+    <field name="quantita" type="decimal" column="quantita" precision="18" scale="2" nullable="true"/>
+    <field name="prezzotot" type="decimal" column="prezzotot" precision="18" scale="2" nullable="true"/>
+    <field name="conto" type="string" column="conto" length="11" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="protocollo" type="string" column="protocollo" length="8" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="uc" type="string" column="uc" length="20" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="dc" type="datetime" column="dc" nullable="true"/>
+    <field name="um" type="string" column="um" length="20" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="dm" type="datetime" column="dm" nullable="true"/>
+  </entity>
+</doctrine-mapping>

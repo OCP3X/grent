@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Lavagna index
+{% endblock %}
+
+
+{% block javascripts %}
+<script src="/js/lavagna/lavagna.js" defer></script>    
+{% endblock %}
+
+
+{% block body %}
+
+<span><h1>Lavagna</h1></span>
+<input type="button" id="add_anomalia" class="btn btn-primary"
+	onclick="location.href='{{ path('app_lavagna_new') }}'"
+	value="Aggiungi Anomalia" />
+	<table class="table" id="table_lavagna">
+		<thead>
+			<tr>
+				<th></th>
+				<th>Anomalia</th>
+				<th></th>
+				<th>Targa</th>
+				<th>Descrizione</th>
+				<th>Data</th>
+				<th>Utente</th>
+				
+				<th></th>
+			</tr>
+		</thead>
+		<tr>
+			<td></td>
+			<td><input type="text" class="ff_search" id="anomaliaFinder" name="anomaliaFinder"></td>
+			<td></td>
+			<td><input type="text" class="ff_search" id="targaFinder" name="targaFinder"></td>
+			<td><input type="text" class="ff_search" id="descrizionFinder"
+				name="descrizionFinder"></td>
+			
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tbody>
+		</tbody>
+
+	</table> 
+	
+	{% endblock %}
+
+
+	{#
+	
+		<script src="/js/index/onLoad.js"></script>
+		<script src="/js/index/findAnomalia.js"></script>
+		<script src="/js/index/confirmDelete.js"></script>
+	
+		#}

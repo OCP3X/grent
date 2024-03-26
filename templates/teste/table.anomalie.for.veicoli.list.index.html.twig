@@ -1,0 +1,28 @@
+
+<table class="table_anomalie_for_veicoli" id="table_anomalie_veicoli">
+
+	<thead>
+		<tr>
+			<th></th>
+			<th>Anomalie</th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	
+	<tbody>
+		{% for entity in anomalie %}
+		<tr>
+			<td><input type="button" id="modify_testa"
+				onclick="location.href='{{ path('app_lavagna_edit', {'idL': entity.idL}) }}'"
+				value="modifica" /></td>
+			<td>{{ entity.anomalia }}</td>
+			<td><input type="button" id="show_testa"
+				onclick="location.href='{{ path('app_lavagna_duplicate', {'idL': entity.idL}) }}'"
+				value="duplica" /></td>
+			<td><input type="button" class="button red" id="delete_testa"
+				onclick="confirmDelete({{entity.idL }})" value="cancella" /></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>

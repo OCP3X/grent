@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="GRENT\Anagrafe" table="anagrafe">
+    <indexes>
+      <index name="IDX_CC0CAFA05F27DFBD" columns="id_comune"/>
+      <index name="IDX_CC0CAFA02BB1824D" columns="id_nazione"/>
+    </indexes>
+    <id name="idAnagrafe" type="integer" column="id_anagrafe">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="descrizione" type="string" column="descrizione" length="100" nullable="false">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="indirizzo" type="string" column="indirizzo" length="50" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="localita" type="string" column="localita" length="50" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="cap" type="string" column="cap" length="5" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="prov" type="string" column="prov" length="2" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="codice" type="string" column="codice" length="7" nullable="false">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="codicex" type="string" column="codicex" length="20" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="codfiscale" type="string" column="codfiscale" length="16" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="partiva" type="string" column="partiva" length="17" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="contrpart" type="string" column="contrpart" length="11" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="pag" type="string" column="pag" length="4" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="fax" type="string" column="fax" length="16" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="telefono" type="string" column="telefono" length="16" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="valuta" type="string" column="valuta" length="3" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="intestazione" type="text" column="intestazione" length="16" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="dnascita" type="datetime" column="dnascita" nullable="true"/>
+    <field name="lnascita" type="string" column="lnascita" length="60" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="email" type="string" column="email" length="50" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="noteAna" type="text" column="note_ana" length="16" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="blocco" type="integer" column="blocco" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="notaBlocco" type="string" column="nota_blocco" length="250" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="estero" type="integer" column="estero" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="personaFisica" type="integer" column="persona_fisica" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="pfCognome" type="string" column="pf_cognome" length="100" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="pfNome" type="string" column="pf_nome" length="100" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="pfSesso" type="string" column="pf_sesso" length="1" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="provinciaNascita" type="string" column="provincia_nascita" length="2" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="uc" type="string" column="uc" length="15" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="dc" type="datetime" column="dc" nullable="true"/>
+    <field name="um" type="string" column="um" length="15" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="dm" type="datetime" column="dm" nullable="true"/>
+    <field name="feCodicedestinatario" type="string" column="fe_CodiceDestinatario" length="7" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="splitPay" type="integer" column="split_pay" nullable="true">
+      <options>
+        <option name="unsigned"/>
+        <option name="default">0</option>
+      </options>
+    </field>
+    <field name="obsoleto" type="integer" column="obsoleto" nullable="true">
+      <options>
+        <option name="unsigned"/>
+        <option name="default">0</option>
+      </options>
+    </field>
+    <field name="entepubblico" type="integer" column="entepubblico" nullable="true">
+      <options>
+        <option name="unsigned"/>
+        <option name="default">0</option>
+      </options>
+    </field>
+    <field name="fePec" type="string" column="fe_pec" length="250" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="pagAnticipo" type="integer" column="pag_anticipo" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="intentoProt" type="string" column="intento_prot" length="50" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="intentoData" type="datetime" column="intento_data" nullable="true"/>
+    <field name="idBanca" type="string" column="id_banca" length="10" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <many-to-one field="idComune" target-entity="Comuni" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_comune" referenced-column-name="id_comune"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idNazione" target-entity="Nazioni" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_nazione" referenced-column-name="id_nazione"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

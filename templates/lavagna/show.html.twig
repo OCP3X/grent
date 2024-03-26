@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lavagna{% endblock %}
+
+{% block body %}
+    <h1>Lavagna</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdVeicolo</th>
+                <td>{{ lavagna.idVeicolo }}</td>
+            </tr>
+            <tr>
+                <th>Anomalia</th>
+                <td>{{ lavagna.anomalia }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_lavagna_index') }}">back to list</a>
+
+    <a href="{{ path('app_lavagna_edit', {'idL': lavagna.idL}) }}">edit</a>
+
+    {{ include('lavagna/_delete_form.html.twig') }}
+{% endblock %}

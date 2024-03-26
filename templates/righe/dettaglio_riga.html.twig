@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dettaglio Documento{% endblock %}
+
+
+{% block body %}
+
+<section id="div_dettaglio_testa">
+        {{ form_start(RigaForm, {'attr': {'id': 'form_dettaglio'}})}}
+
+    {% if teste.getTipoIntervento()=='Programmata' %}
+
+    <div class="row">
+        <div class="col">
+          {{ form_row(RigaForm.id_off_intervento) }}
+        </div>
+        
+    </div>
+
+    {%else%}
+    
+ {{ form_widget(RigaForm.id_off_intervento, {'attr': {'hidden': true} }) }}
+ 
+   
+    
+    {%endif%}
+
+    <div class="row">
+        <div class="col">
+            {{ form_row(RigaForm.descrizione_anomalia) }}
+        </div>
+    </div>
+    
+
+    <div class="row">
+        <div class="col">
+            {{ form_row(RigaForm.descrizione_intervento) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-3">
+            {{ form_row(RigaForm.ore) }}
+        </div>
+        <div class="col-3">
+            {{ form_row(RigaForm.id_meccanico) }}
+        </div>
+    </div>
+
+        
+    
+    <button type="submit" class="btn btn-primary btnSalva">Salva</button>
+    <a href='{{href_cancel}}'><button type="button" class="btn btn-secondary btnAnnulla" >Annulla</button></a>
+        {{ form_end(RigaForm)}}
+    </section>
+
+
+
+
+
+{% endblock %}
+
+
+

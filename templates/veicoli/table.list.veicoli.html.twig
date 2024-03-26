@@ -1,0 +1,13 @@
+
+{% for veicolo in veicoli %}
+			<tr>
+				<td><i class="fa-solid fa-check veicoli_ext_select_veicolo" data_id_veicolo="{{ veicolo.id_veicolo }}"
+                    data_descrizione="{{ veicolo.descrizion }}" data_targa="{{ veicolo.targa }}">
+                </i></td>
+				<td>{{ veicolo.descrizion }}</td>
+				<td>{{ veicolo.targa }}</td>
+				<td>{{ veicolo.id_tipo_veicolo }}</td>
+				<td>{{ veicolo.db }}</td>
+				<td></td>
+			</tr>
+{% endfor %}

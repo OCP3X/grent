@@ -1,0 +1,153 @@
+{% extends 'base.html.twig' %}
+
+{% block css_pagina %}
+.div_ricerca { display: none; }
+ span {
+	         width: 300px;
+	         height: 80px;
+	         display: inline-block;
+	         vertical-align: left;
+	         line-height: normal;
+	         margin-left: 10px;
+          }
+{% endblock %}
+
+{% block jQueryReady %}
+$('#find_veicoli').click(function(){ 
+
+    $('.div_dettaglio').toggle();
+    $('.div_ricerca').toggle(); 
+    $.get("/veicoli/find/all/*/*" , function (data) {
+    // Iterate the groups first.
+         $('#to_update').html(data);
+   });
+   var val = $('#find_veicoli').val();
+   if (val == "chiudi") {
+        $('#find_veicoli').val("ricerca veicoli");
+     } else {
+       $('#find_veicoli').val("chiudi");
+     }
+});
+
+
+$('#edit_veicolo').focusout(function() {
+
+    $.getJSON("/veicoli/find/" + $('#edit_veicolo').val(), function (data) {
+    // Iterate the groups first.
+    $('#text_descrizion').val('');
+     $(data).each(function (index, item) {
+         // each iteration
+         var descrizione = item.descrizione;
+               
+         $('#text_descrizion').val( descrizione );
+     });
+   });
+});
+
+$('#targa_finder').keyup(function() {
+  var destinazione = "";
+  var d = $('#descrizione_finder');
+  if (d.val() == '') {
+       destinazione = "*" ;
+  } else {
+    destinazione = d.val();
+  }
+    $.get("/veicoli/find/all/" + destinazione + "/" + $('#targa_finder').val(), function (data) {
+       // Iterate the groups first.
+       $('#to_update').html(data);
+   });
+});
+
+$('#descrizione_finder').keyup(function() {
+  var targa = "";
+  var t = $('#targa_finder');
+  
+  if (t.val() == '') {
+     targa = "*";
+  } else {
+     targa = t.val();
+  }
+  
+  $.get("/veicoli/find/all/" + $('#descrizione_finder').val() + "/" + targa, function (data) {
+       // Iterate the groups first.
+       $('#to_update').html(data);
+   });
+});
+
+function  selectVeicoloItem(id) {
+     $.getJSON("/veicoli/find/" + id, function (data) {
+    // Iterate the groups first.
+    $('#text_descrizion').val('');
+     $(data).each(function (index, item) {
+         // each iteration
+         var descrizione = item.descrizione;
+               
+         $('#text_descrizion').val( descrizione );
+     });
+   });
+};
+
+$('#update_riga').click(function() {
+    
+	$.get("/righe/" + $('#id_riga').val() + "/"modify", function(data) { // Iterate the groups first.
+	   $.get("/righe/" + data + "/edit", function(data) {
+	  });
+	}); 
+});
+{% endblock %}
+
+{% block body %}
+<div class="div_global_form">
+<span><h1>
+	{{title_form}}
+</h1></span>
+{{ form_start(form) }}
+<div class="my-custom-class-for-errors">
+	{{ form_errors(form) }}
+</div>
+<span><input type="button" id="find_teste" value="ricerca teste" /></span>
+<div class="div_dettaglio">
+	<div class="row">
+		<div class="col">
+			<span>{{ form_row(form.idTestaFk, {'label': 'testa: ', 'id': 'edit_testa'})}}</span>
+
+				<div>
+			     <span>{{ form_row(form.descrizioneAnomalia, { 'label': 'descrizione anomalia: ', 'id': 'edit_anomalia' })}}</span>
+			    </div>
+		</div>
+	</div>
+
+	{{ form_end(form) }}
+	<span><input type="button" id="show_anomalia"
+		onclick="location.href='{{ path('app_teste_index') }}'"
+		value="Index" /></span>
+		
+</div>
+{# chiusura div dettaglio#}
+
+<div class="div_ricerca">
+<table class="table_teste" id="table_teste">
+		<thead>
+			<tr>
+				<th></th>
+				<th>teste id</th>
+				<th>numero documento</th>
+				<th>decrizione veicolo</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tr>
+			<td></td>
+			<td><input type="text" id="descrizione_finder" name="descrizione_finder"></td>
+			<td><input type="text" id="targa_finder" name="targa_finder"></td>
+			<td></td>
+		</tr>
+		<tbody id ="to_update">
+		</tbody>
+ </table>
+</div>
+
+{# chiusura div ricerca#}
+
+</div>
+{% endblock %}

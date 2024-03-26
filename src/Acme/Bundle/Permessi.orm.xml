@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="GRENT\Permessi" table="permessi">
+    <indexes>
+      <index name="IDX_5D87107CF872060D" columns="id_utente"/>
+      <index name="IDX_5D87107CFB34A5C2" columns="id_gruppo"/>
+    </indexes>
+    <id name="idPermesso" type="integer" column="id_permesso">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <many-to-one field="idUtente" target-entity="Utenti" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_utente" referenced-column-name="id_utente"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idGruppo" target-entity="Gruppi" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_gruppo" referenced-column-name="id_gruppo"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

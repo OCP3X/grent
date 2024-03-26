@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="GRENT\Fteste" table="fteste">
+    <indexes>
+      <index name="NonClusteredIndex-20150506-154511" columns="data_fatt"/>
+    </indexes>
+    <id name="idFtesta" type="integer" column="id_ftesta">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="idCli" type="string" column="id_cli" length="6" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="idTipodoc" type="string" column="id_tipodoc" length="2" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="numFatt" type="integer" column="num_fatt" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="dataFatt" type="datetime" column="data_fatt" nullable="true"/>
+    <field name="bollo" type="decimal" column="bollo" precision="18" scale="2" nullable="true"/>
+    <field name="acconto" type="decimal" column="acconto" precision="18" scale="2" nullable="true"/>
+    <field name="idPag" type="string" column="id_pag" length="4" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="dc" type="datetime" column="dc" nullable="true"/>
+    <field name="dm" type="datetime" column="dm" nullable="true"/>
+    <field name="imponibile" type="decimal" column="imponibile" precision="18" scale="2" nullable="true"/>
+    <field name="iva" type="decimal" column="iva" precision="18" scale="2" nullable="true"/>
+    <field name="uc" type="string" column="uc" length="15" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="um" type="string" column="um" length="15" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="export" type="boolean" column="export" nullable="true"/>
+    <field name="idAutista" type="integer" column="id_autista" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="idVeicolo" type="integer" column="id_veicolo" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="idGruppoVeicolo" type="string" column="id_gruppo_veicolo" length="2" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="dataUscita" type="datetime" column="data_uscita" nullable="true"/>
+    <field name="dataRientro" type="datetime" column="data_rientro" nullable="true"/>
+    <field name="passeggero" type="string" column="passeggero" length="30" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="km" type="string" column="km" length="5" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="feIddocumento" type="string" column="fe_iddocumento" length="20" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="feData" type="datetime" column="fe_data" nullable="true"/>
+    <field name="feCig" type="string" column="fe_cig" length="15" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="feCup" type="string" column="fe_cup" length="15" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="feTipoDati" type="integer" column="fe_tipo_dati" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="feCodicefile" type="string" column="fe_codicefile" length="5" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="feDatapag" type="datetime" column="fe_datapag" nullable="true"/>
+    <field name="feCcc" type="string" column="fe_ccc" length="100" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="incassato" type="boolean" column="incassato" nullable="true"/>
+    <field name="splitPayment" type="integer" column="split_payment" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="corrispettivi" type="string" column="corrispettivi" length="10" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="ritenuta" type="decimal" column="ritenuta" precision="18" scale="2" nullable="true">
+      <options>
+        <option name="default">0</option>
+      </options>
+    </field>
+    <field name="ritAliquota" type="decimal" column="rit_aliquota" precision="18" scale="2" nullable="true">
+      <options>
+        <option name="default">0</option>
+      </options>
+    </field>
+    <field name="feCausale" type="string" column="fe_causale" length="200" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="idBanca" type="string" column="id_banca" length="10" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

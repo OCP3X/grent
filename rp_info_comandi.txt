@@ -1,0 +1,26 @@
+composer require symfony/security-bundle
+
+
+php bin/console make:user
+
+composer require symfonycasts/verify-email-bundle
+php bin/console make:registration-form
+
+php bin/console make:controller Login
+
+composer require dompdf/dompdf
+
+per fare override di pagine di errore di default 403 etc 
+composer require symfony/twig-pack
+
+composer require easycorp/easyadmin-bundle
+php bin/console make:admin:dashboard
+php bin/console make:admin:crud
+
+
+per lanciare webpack!
+npm run watch
+
+
+php bin/console make:entity
+

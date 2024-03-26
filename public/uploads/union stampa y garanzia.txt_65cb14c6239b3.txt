@@ -1,0 +1,23 @@
+SELECT * FROM `stampa_delibere2`
+JOIN garanzia_delibere2 
+on stampa_delibere2.id_dataexcel_s = garanzia_delibere2.id_dataexcel_g
+WHERE stampa_delibere2.ndg_s = garanzia_delibere2.ndg_g
+and stampa_delibere2.tipologia_garanzia = garanzia_delibere2.tipologia_documentale_g;
+
+
+*************************************************************************************
+
+SELECT
+    MIN(stampa_delibere2.id_stampa_delibere) AS id_stampa_delibere,
+    stampa_delibere2.*,
+    garanzia_delibere2.*
+FROM
+    stampa_delibere2
+JOIN
+    garanzia_delibere2 ON stampa_delibere2.id_dataexcel_s = garanzia_delibere2.id_dataexcel_g
+WHERE
+    stampa_delibere2.ndg_s = garanzia_delibere2.ndg_g
+    AND stampa_delibere2.tipologia_garanzia = garanzia_delibere2.tipologia_documentale_g
+    
+GROUP BY    
+    stampa_delibere2.id_stampa_delibere;

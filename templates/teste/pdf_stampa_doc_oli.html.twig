@@ -1,0 +1,90 @@
+{% extends 'base.pdf.twig' %}
+{% block title %}Stampa Documento{% endblock %}
+
+{% block body %}
+
+<table id="main_blocchi" style="
+width:100%;
+border-collapse: collapse;
+border-style: solid;
+border-width: 3px;
+font-family: 'Verdana';
+border-color: rgb(219,221,204);
+">
+    <tr style="">
+        <td>
+            <table id="intestazione" style="width:70%;margin:0 auto;">
+                <tr>
+                    <td style="width:80%;font-size:50px;color:#008617"><strong><i>GENOVARENT</i></strong></td>
+                    <td style="width:20%;font-size:18px"><strong>Num. {{testa.getNumeroDoc()}}</strong></td>
+                </tr>
+                <tr>
+                    <td><span style="font-size:25px">Ordine lavorazioni officina interna</span></td>
+                    <td></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+    <tr style="">
+        <td>
+            <table id="testa" style="width:90%;margin:0 auto;border-collapse: collapse;
+border-style: solid;
+border-width: 1px;
+margin-bottom:20px;
+border-color: rgb(219,221,204);
+">
+                <tr style="background-color:rgb(219,221,204);padding:5px ; height: 45px;text-align: center;">
+                    <td>Data apertura ordine lavoro</td>
+                    <td>Proprietario</td>
+                    <td>Targa</td>
+                    <td>KM</td>
+                    
+                </tr>
+                <tr style="padding:5px ; height: 45px;text-align: center;">
+                    <td>{{testa.getDataDocFormat("d/m/Y")}}</td>
+                    <td>{{veicolo.getProprieta}}</td>
+                    <td>{{veicolo.getTarga()}}</td>
+                    <td>{{testa.getKmAttuali()}}</td>
+                    
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <table id="Righe" style="margin:0 auto;width:99%;text-align:left;border-collapse: collapse;
+            border-style: solid;
+            border-width: 1px;
+            margin-bottom:20px;
+            border-color: rgb(219,221,204);
+            ">
+                <thead>
+                   <tr style="background-color:rgb(219,221,204);padding:5px ; height: 45px;text-align: center;">
+                     <th>Anomalie</th>
+                        <th>Intervento eseguito</th>
+                        <th>Ore M.O.</th>
+                        <th>Operatore</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for r in righe %}
+                    <tr style="border-style: solid;border-width:0 0 1px 0;border-color: rgb(219,221,204);">
+                        <td style="height:50px;" >{{r.descrizione_anomalia}}</td>
+                        <td>{{r.descrizione_intervento}}</td>
+                        <td>{{r.ore}}</td>
+                        <td>{{r.id_meccanico}}</td>
+                    </tr>
+                    {% endfor %}
+                    
+
+                </tbody>
+            </table>
+        </td>
+    </tr>
+
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+<tbody>
+	{% for entity in anomalie %}
+	<tr>
+		<td><input type="button" id="modify_testa"
+			onclick="location.href='{{ path('app_lavagna_edit', {'idL': entity['id_l']}) }}'"
+			value="modifica" /></td>
+		<td>{{ entity['numero_doc'] }}</td>	
+	    <td>{{ entity['tipo_doc'] }}</td>
+		<td>{{ entity['id_veicolo'] }}</td>
+		<td>{{ entity['descrizion'] }}</td>
+		<td>{{ entity['tipo_intervento'] }}</td>
+		<td>{{ entity['id_meccanico'] }}</td>
+		<td><input type="button" id="show_testa"
+			onclick="location.href='{{ path('app_lavagna_duplicate', {'idL': entity['id_l']}) }}'"
+			value="duplica" /></td>
+		<td><input type="button" class="button red" id="delete_testa"
+			onclick="confirmDelete({{entity['id_l']}})" value="cancella" /></td>
+	</tr>
+	{% endfor %}
+</tbody>

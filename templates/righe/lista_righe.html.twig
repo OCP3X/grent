@@ -1,0 +1,20 @@
+
+
+{% for r in aLab %}
+			<tr>
+				<td><a href='{{r.href_dettaglio}}'><i class="fa-solid fa-pencil btnDettaglioRiga ok_puntatore" data_id_riga="{{r.id_riga}}"></i></a></td>
+				
+				
+				<td>
+				{% if r.tipo_intervento=='Programmata' %}
+					<i>{{ r.intervento }}</i>
+				{% endif %}
+					{{ r.descrizione_anomalia }}
+				</td>
+				<td>{{ r.descrizione_intervento }}</td>
+				<td>{{ r.ore }}</td>
+				<td>{{ r.id_meccanico }}</td>
+				<td>{{ r.da_lavagna }}</td>
+				<td><i class="fa-solid fa-trash btnDeleteRiga ok_puntatore" data_id_riga="{{r.id_riga}}"></i></td>
+			</tr>
+{% endfor %}

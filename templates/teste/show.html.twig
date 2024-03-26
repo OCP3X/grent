@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Teste{% endblock %}
+
+{% block body %}
+    <h1>Teste</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ teste.id }}</td>
+            </tr>
+            <tr>
+                <th>Tipodoc</th>
+                <td>{{ teste.tipodoc }}</td>
+            </tr>
+            <tr>
+                <th>Numero_doc</th>
+                <td>{{ teste.numeroDoc }}</td>
+            </tr>
+            <tr>
+                <th>Data_doc</th>
+                <td>{{ teste.dataDoc ? teste.dataDoc|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Id_veicolo</th>
+                <td>{{ teste.idVeicolo }}</td>
+            </tr>
+            <tr>
+                <th>Id_meccanico</th>
+                <td>{{ teste.idMeccanico }}</td>
+            </tr>
+            <tr>
+                <th>Tipo_intervento</th>
+                <td>{{ teste.tipoIntervento }}</td>
+            </tr>
+            <tr>
+                <th>Data_creazione</th>
+                <td>{{ teste.dataCreazione ? teste.dataCreazione|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Data_modifica</th>
+                <td>{{ teste.dataModifica ? teste.dataModifica|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Utente_creazione</th>
+                <td>{{ teste.utenteCreazione }}</td>
+            </tr>
+            <tr>
+                <th>Utente_modifica</th>
+                <td>{{ teste.utenteModifica }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_teste_index') }}">back to list</a>
+
+    <a href="{{ path('app_teste_edit', {'id': teste.id}) }}">edit</a>
+
+    {{ include('teste/_delete_form.html.twig') }}
+{% endblock %}

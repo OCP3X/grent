@@ -1,0 +1,41 @@
+
+
+<span><input type="button" id="find_anomalia" type="button"
+	value="cerca anomalia esistente da lavagna" /></span>
+<span>Aggiugi nuova anomalia:<input type="text" id="new_anomalia"
+	value="" /></span>
+<span><input type="button" id="add_anomalia" type="button"
+	value="aggiungi" /></span>
+<table class="table_anomalie_for_veicoli" id="table_anomalie_veicoli">
+	<span><input type="text" id="id_lavagna" value=""
+		style="display: none" /></span>
+	<thead>
+		<tr>
+			<th></th>
+			<th>Anomalie</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody id="list_anomalie">
+	</tbody>
+</table>
+
+
+function  selectRigaItem(id) {
+    $('#find_veicoli').val("ricerca veicoli");
+     $.getJSON("/veicoli/find/" + id, function (data) {
+    // Iterate the groups first.
+    $('#text_descrizion').val('');
+     $(data).each(function (index, item) {
+         // each iteration
+         var descrizione = item.descrizione;
+         $('#edit_veicolo').val( id );      
+         $('#text_descrizion').val( descrizione );
+     });
+   });
+   
+   $('.div_ricerca').toggle(); 
+   $('.div_dettaglio').show();
+   $('.div_dettaglio_anomalie').show();
+};
+</script>

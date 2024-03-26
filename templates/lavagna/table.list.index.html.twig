@@ -1,0 +1,21 @@
+<tbody>
+	{% for entity in anomalie %}
+	<tr>
+		<td>
+			<a href='{{entity.href_dett}}'><i class="fa-solid fa-pencil"></i></a>
+		</td>
+		<td>{{ entity['anomalia'] }}</td>
+		<td>
+			<a href='{{entity.href_duplica}}'><i class="fa-solid fa-copy"></i></a>
+		</td>
+		<td>{{ entity['targa'] }}</td>
+		<td>{{ entity['descrizion'] }}</td>
+		<td>{{ entity['data_lavagna']  ?  entity['data_lavagna']|date('d/m/y') : ''}}</td>
+		<td>{{ entity['username'] }}</td>
+		
+		<td>
+			<i class="fa-solid fa-trash" onclick="confirmDelete({{entity['id_l']}})"></i>
+		</td>
+	</tr>
+	{% endfor %}
+</tbody>

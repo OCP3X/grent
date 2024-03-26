@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="GRENT\Occrighecon" table="occrighecon">
+    <id name="idOccupazione" type="integer" column="id_occupazione">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="noleggio" type="decimal" column="noleggio" precision="18" scale="2" nullable="true"/>
+    <field name="kmn" type="integer" column="kmn" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="kmat" type="decimal" column="kmat" precision="18" scale="2" nullable="true"/>
+    <field name="kmtot" type="decimal" column="kmtot" precision="18" scale="2" nullable="true"/>
+    <field name="hourn" type="integer" column="hourn" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="hourat" type="decimal" column="hourat" precision="18" scale="2" nullable="true"/>
+    <field name="hourtot" type="decimal" column="hourtot" precision="18" scale="2" nullable="true"/>
+    <field name="notten" type="integer" column="notten" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="notteat" type="decimal" column="notteat" precision="18" scale="2" nullable="true"/>
+    <field name="nottetot" type="decimal" column="nottetot" precision="18" scale="2" nullable="true"/>
+    <field name="autostrade" type="decimal" column="autostrade" precision="18" scale="2" nullable="true"/>
+    <field name="park" type="decimal" column="park" precision="18" scale="2" nullable="true"/>
+    <field name="pastin" type="integer" column="pastin" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="pastiat" type="decimal" column="pastiat" precision="18" scale="2" nullable="true"/>
+    <field name="pastitot" type="decimal" column="pastitot" precision="18" scale="2" nullable="true"/>
+    <field name="pernottamenti" type="decimal" column="pernottamenti" precision="18" scale="2" nullable="true"/>
+    <field name="carburante" type="decimal" column="carburante" precision="18" scale="2" nullable="true"/>
+    <field name="imponibile" type="decimal" column="imponibile" precision="18" scale="2" nullable="true"/>
+    <field name="ivaPerc" type="decimal" column="iva_perc" precision="18" scale="2" nullable="true"/>
+    <field name="ivatot" type="decimal" column="ivatot" precision="18" scale="2" nullable="true"/>
+    <field name="totale" type="decimal" column="totale" precision="18" scale="2" nullable="true"/>
+  </entity>
+</doctrine-mapping>

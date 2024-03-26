@@ -1,0 +1,5 @@
+hora 4
+****
+php /home/leningt1/customers.onetyres1.com/stock.php
+
+php /home/leningt1/customers.onetyres1.com/stock_truck.php

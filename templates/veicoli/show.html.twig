@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Veicoli{% endblock %}
+
+{% block body %}
+    <h1>Veicoli</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdVeicolo</th>
+                <td>{{ veicoli.idVeicolo }}</td>
+            </tr>
+            <tr>
+                <th>NumParco</th>
+                <td>{{ veicoli.numParco }}</td>
+            </tr>
+            <tr>
+                <th>Descrizion</th>
+                <td>{{ veicoli.descrizion }}</td>
+            </tr>
+            <tr>
+                <th>Targa</th>
+                <td>{{ veicoli.targa }}</td>
+            </tr>
+            <tr>
+                <th>IdTipoVeicolo</th>
+                <td>{{ veicoli.idTipoVeicolo }}</td>
+            </tr>
+            <tr>
+                <th>IdGruppoVeicolo</th>
+                <td>{{ veicoli.idGruppoVeicolo }}</td>
+            </tr>
+            <tr>
+                <th>Immatricolazione</th>
+                <td>{{ veicoli.immatricolazione ? veicoli.immatricolazione|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Numposti</th>
+                <td>{{ veicoli.numposti }}</td>
+            </tr>
+            <tr>
+                <th>Dc</th>
+                <td>{{ veicoli.dc ? veicoli.dc|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Dm</th>
+                <td>{{ veicoli.dm }}</td>
+            </tr>
+            <tr>
+                <th>Descrizione2</th>
+                <td>{{ veicoli.descrizione2 }}</td>
+            </tr>
+            <tr>
+                <th>Ordine</th>
+                <td>{{ veicoli.ordine }}</td>
+            </tr>
+            <tr>
+                <th>Proprieta</th>
+                <td>{{ veicoli.proprieta }}</td>
+            </tr>
+            <tr>
+                <th>Fittizio</th>
+                <td>{{ veicoli.fittizio }}</td>
+            </tr>
+            <tr>
+                <th>Termiche</th>
+                <td>{{ veicoli.termiche }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_veicoli_index') }}">back to list</a>
+
+    <a href="{{ path('app_veicoli_edit', {'idVeicolo': veicoli.idVeicolo}) }}">edit</a>
+
+    {{ include('veicoli/_delete_form.html.twig') }}
+{% endblock %}

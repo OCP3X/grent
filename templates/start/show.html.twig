@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LAVAGNA{% endblock %}
+
+{% block body %}
+    <h1>LAVAGNA</h1>
+ 
+   	<span><input type="button" id="go_teste"
+		onclick="location.href='{{ path('app_teste_index') }}'"
+		value="Teste Indice" /></span>
+
+  	<span><input type="button" id="go_lavagna"
+		onclick="location.href='{{ path('app_lavagna_index') }}'"
+		value="Lavagna Indice" /></span>
+
+   
+{% endblock %}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="GRENT\DispVeicoli" table="disp_veicoli">
+    <id name="idDispVeicolo" type="integer" column="id_disp_veicolo">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="idVeicolo" type="integer" column="id_veicolo" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="dal" type="datetime" column="dal" nullable="true"/>
+    <field name="al" type="datetime" column="al" nullable="true"/>
+  </entity>
+</doctrine-mapping>

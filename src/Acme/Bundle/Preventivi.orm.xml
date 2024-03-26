@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="GRENT\Preventivi" table="preventivi">
+    <id name="idPreventivo" type="integer" column="id_preventivo">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="dataPreventivo" type="datetime" column="data_preventivo" nullable="true"/>
+    <field name="idTipoVeicolo" type="string" column="id_tipo_veicolo" length="2" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="idGruppoVeicolo" type="string" column="id_gruppo_veicolo" length="2" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="servizio" type="string" column="servizio" length="1000" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="rifNome" type="string" column="rif_nome" length="50" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="rifTel" type="string" column="rif_tel" length="20" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="rifNumero" type="string" column="rif_numero" length="50" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="rifData" type="datetime" column="rif_data" nullable="true"/>
+    <field name="rifMail" type="string" column="rif_mail" length="50" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="acconto" type="decimal" column="acconto" precision="18" scale="2" nullable="true"/>
+    <field name="dataAcconto" type="datetime" column="data_Acconto" nullable="true"/>
+    <field name="da" type="datetime" column="da" nullable="true"/>
+    <field name="a" type="datetime" column="a" nullable="true"/>
+    <field name="descrTipoVeicolo" type="string" column="descr_tipo_veicolo" length="50" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="paxNo" type="integer" column="pax_no" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="idCli" type="string" column="id_cli" length="6" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="cliente" type="string" column="cliente" length="50" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="indirizzo" type="string" column="indirizzo" length="50" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="cap" type="string" column="cap" length="50" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="citta" type="string" column="citta" length="50" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="tel" type="string" column="tel" length="15" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="fax" type="string" column="fax" length="15" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="flagOk" type="boolean" column="flag_ok" nullable="true"/>
+    <field name="dc" type="datetime" column="dc" nullable="true"/>
+    <field name="uc" type="string" column="uc" length="15" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="dm" type="datetime" column="dm" nullable="true"/>
+    <field name="um" type="string" column="um" length="15" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

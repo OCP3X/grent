@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1>Lavagna Inserisci nuova anomalia</h1>
+{{ form_start(form) }}
+<div class="my-custom-class-for-errors">
+	{{ form_errors(form) }}
+</div>
+<div class="row">
+	<div class="col">
+		{{ form_row(form.idVeicolo, {'id': 'edit_veicolo' })}}
+		{{ form_row(form.anomalia, { 'label': 'anomalia: ', 'id': 'edit_anomalia' })}}
+		{{ form_row(form.descrizion, { 'id': 'edit_descrizion'})}}
+		<datalist id="descrizion_veicolo">
+			{% for listOne in veicoli %}
+			<option value="{{ listOne.idVeicolo }}">{{ listOne.descrizion }}</option>
+			{% endfor %}
+		</datalist>
+		<script>
+            var x = document.getElementById("edit_descrizion");
+            x.addEventListener('keyup', myTypeFunction, true);
+            function myTypeFunction() {
+                // Instantiating the request object
+                
+                var request = new XMLHttpRequest();
+                // Instantiating the request object
+                request.open("GET", "veicoli/" + document.getElementById("edit_descrizion").value);
+               // Defining event listener for readystatechange event
+               request.onreadystatechange = function() {
+               // Check if the request is compete and was successful
+               if (this.readyState === 4 && this.status === 200) {
+                  // Inserting the response from server into an HTML element
+                  var response = JSON.parse(this.responseText);
+                  var options = '';
+                  for (var key in response) {   
+                     if (response.hasOwnProperty(key)) {
+                      var val = response[key];
+                      // insert new row
+                      options += '<option value=' + val.idveicolo + '>'+ val.descrizione + '</option>';
+                     }
+                  }
+                 document.getElementById('descrizion_veicolo').innerHTML = options; 
+                }
+              };
+             // Sending the request to the server
+             request.send();
+           }
+        </script>
+	</div>
+
+	{{ form_widget(form.save, { 'label': 'Aggiungi' })}}
+</div>
+{{ form_end(form) }}
+<td><input type="button" id="show_anomalia"
+	onclick="location.href='{{ path('app_lavagna_index') }}'" value="Index" />
+	{% endblock %}

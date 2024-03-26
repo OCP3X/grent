@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Righe{% endblock %}
+
+{% block body %}
+    <h1>Righe</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ righe.id }}</td>
+            </tr>
+            <tr>
+                <th>Id_testa_fk</th>
+                <td>{{ righe.idTestaFk }}</td>
+            </tr>
+            <tr>
+                <th>Id_l_fk</th>
+                <td>{{ righe.idLFk }}</td>
+            </tr>
+            <tr>
+                <th>Descrizione_anomalia</th>
+                <td>{{ righe.descrizioneAnomalia }}</td>
+            </tr>
+            <tr>
+                <th>Descrizione_intervento</th>
+                <td>{{ righe.descrizioneIntervento }}</td>
+            </tr>
+            <tr>
+                <th>Id_meccanico</th>
+                <td>{{ righe.idMeccanico }}</td>
+            </tr>
+            <tr>
+                <th>Id_riga_prelievo</th>
+                <td>{{ righe.idRigaPrelievo }}</td>
+            </tr>
+            <tr>
+                <th>Data_creazione</th>
+                <td>{{ righe.dataCreazione ? righe.dataCreazione|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Data_modifica</th>
+                <td>{{ righe.dataModifica ? righe.dataModifica|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Utente_creazione</th>
+                <td>{{ righe.utenteCreazione }}</td>
+            </tr>
+            <tr>
+                <th>Utente_modifica</th>
+                <td>{{ righe.utenteModifica }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_righe_index') }}">back to list</a>
+
+    <a href="{{ path('app_righe_edit', {'id': righe.id}) }}">edit</a>
+
+    {{ include('righe/_delete_form.html.twig') }}
+{% endblock %}

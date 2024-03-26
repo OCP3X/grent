@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="GRENT\Comuni" table="comuni">
+    <id name="idComune" type="string" column="id_comune" length="4">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="comune" type="string" column="comune" length="240" nullable="false">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="idRegione" type="integer" column="id_regione" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="idProvincia" type="integer" column="id_provincia" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="provincia" type="string" column="provincia" length="2" nullable="false">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="codComune" type="string" column="cod_comune" length="6" nullable="false">
+      <options>
+        <option name="fixed">1</option>
+        <option name="default"/>
+      </options>
+    </field>
+    <field name="cap" type="string" column="cap" length="5" nullable="false">
+      <options>
+        <option name="fixed">1</option>
+        <option name="default"/>
+      </options>
+    </field>
+    <field name="uc" type="string" column="uc" length="15" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="dc" type="datetime" column="dc" nullable="true"/>
+    <field name="um" type="string" column="um" length="15" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="dm" type="datetime" column="dm" nullable="true"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="GRENT\Occrighesenza" table="occrighesenza">
+    <id name="idOccupazione" type="integer" column="id_occupazione">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="dayn" type="integer" column="dayn" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="dayat" type="decimal" column="dayat" precision="18" scale="2" nullable="true"/>
+    <field name="daytot" type="decimal" column="daytot" precision="18" scale="2" nullable="true"/>
+    <field name="hourn" type="integer" column="hourn" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="hourat" type="decimal" column="hourat" precision="18" scale="2" nullable="true"/>
+    <field name="hourtot" type="decimal" column="hourtot" precision="18" scale="2" nullable="true"/>
+    <field name="weekn" type="integer" column="weekn" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="weekat" type="decimal" column="weekat" precision="18" scale="2" nullable="true"/>
+    <field name="weektot" type="decimal" column="weektot" precision="18" scale="2" nullable="true"/>
+    <field name="kmn" type="integer" column="kmn" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="kmat" type="decimal" column="kmat" precision="18" scale="2" nullable="true"/>
+    <field name="kmtot" type="decimal" column="kmtot" precision="18" scale="2" nullable="true"/>
+    <field name="day1n" type="integer" column="day1n" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="day1at" type="decimal" column="day1at" precision="18" scale="2" nullable="true"/>
+    <field name="day1tot" type="decimal" column="day1tot" precision="18" scale="2" nullable="true"/>
+    <field name="day2n" type="integer" column="day2n" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="day2at" type="decimal" column="day2at" precision="18" scale="2" nullable="true"/>
+    <field name="day2tot" type="decimal" column="day2tot" precision="18" scale="2" nullable="true"/>
+    <field name="day3n" type="integer" column="day3n" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="day3at" type="decimal" column="day3at" precision="18" scale="2" nullable="true"/>
+    <field name="day3tot" type="decimal" column="day3tot" precision="18" scale="2" nullable="true"/>
+    <field name="rifornimento" type="decimal" column="rifornimento" precision="18" scale="2" nullable="true"/>
+    <field name="franchigia" type="decimal" column="franchigia" precision="18" scale="2" nullable="true"/>
+    <field name="imponibile" type="decimal" column="imponibile" precision="18" scale="2" nullable="true"/>
+    <field name="ivaPerc" type="decimal" column="iva_perc" precision="18" scale="2" nullable="true"/>
+    <field name="ivatot" type="decimal" column="ivatot" precision="18" scale="2" nullable="true"/>
+    <field name="totale" type="decimal" column="totale" precision="18" scale="2" nullable="true"/>
+    <field name="capcontanti" type="decimal" column="capcontanti" precision="18" scale="2" nullable="true"/>
+    <field name="capassegno" type="decimal" column="capassegno" precision="18" scale="2" nullable="true"/>
+    <field name="capextradep" type="decimal" column="capextradep" precision="18" scale="2" nullable="true"/>
+    <field name="captotale" type="decimal" column="captotale" precision="18" scale="2" nullable="true"/>
+    <field name="saldoclient" type="decimal" column="saldoclient" precision="18" scale="2" nullable="true"/>
+    <field name="saldogrent" type="decimal" column="saldogrent" precision="18" scale="2" nullable="true"/>
+  </entity>
+</doctrine-mapping>

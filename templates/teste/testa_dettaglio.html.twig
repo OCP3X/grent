@@ -1,0 +1,275 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dettaglio Documento{% endblock %}
+
+
+{% block javascripts %}
+<script src="/js/teste/teste_dettaglio.js" defer></script>    
+<script src="/js/veicoli/find_veicoli.js" defer></script>    
+<script>
+    var ok_modifica ={{ok_modifica}};
+    var php_id_testa ={{id_testa}};
+    var terminato ={{testa.getTerminato()}};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js" defer></script>
+{% endblock %}
+
+
+{#
+    
+    https://stackoverflow.com/questions/58544940/how-to-display-a-datepicker-on-symfony
+    #}
+
+
+
+{% block stylesheets %}
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css" rel="stylesheet"/>
+
+<style>
+#div_dettaglio_testa.no_modifica {
+    background-color: #eeeeee;
+    padding: 10px;
+}
+
+#div_dettaglio_testa.no_modifica label{
+    color: #008102;
+    
+}
+#div_dettaglio_testa.modifica {
+    background-color: #008102;
+    
+    padding: 10px;
+}
+
+#div_dettaglio_testa.modifica label{
+    color: #ffffff;
+    
+}
+
+.div_ricerca_veicoli{
+    display:none;
+}
+.div_ricerca_anomalia{
+    display:none;
+}
+
+.div_btn_ricerca_veicolo{
+	text-align: center;
+ }
+
+ .btnRicercaVeicolo {
+	font-size:27px;
+	padding: 30px 0;
+	cursor: pointer;
+ }
+
+ .btnRicercaVeicolo:hover {
+	color: #ffffff;
+ }
+
+ .ok_puntatore{
+    cursor: pointer;
+ }
+
+</style>        
+{% endblock %}
+
+
+{% block body %}
+    <h1>Dettaglio Documento*</h1>
+
+<div class="div_dettaglio">
+
+    <section id="div_dettaglio_testa">
+        {{ form_start(testaform, {'attr': {'id': 'form_dettaglio'}})}}
+
+        
+    <div class="row">
+        <div class="col">
+            {% if ok_modifica>0 %}
+            {{ form_row(testaform.tipodoc) }}
+            {% else %}
+            {{ form_label(testaform.tipodoc) }}
+            <input type="textbox" name="{{ field_name(testaform.tipodoc) }}" value="{{ field_value(testaform.tipodoc) }}"  class="form-control">
+            {% endif %}
+            
+        </div>
+        <div class="col">
+                
+            {% if ok_modifica>0 %}
+            {{ form_row(testaform.tipo_intervento) }}
+            {% else %}
+            {{ form_label(testaform.tipo_intervento) }}
+            <input type="textbox" name="{{ field_name(testaform.tipo_intervento) }}" value="{{ field_value(testaform.tipo_intervento) }}"  class="form-control">
+            {% endif %}
+
+        </div>
+        <div class="col">
+            {{ form_row(testaform.numero_doc) }}
+        </div>
+        <div class="col">
+            {{ form_row(testaform.data_doc) }}
+        </div>
+
+
+
+        
+    </div>
+
+
+        
+    <div class="row">
+        
+        <div class="col">
+            {{ form_row(testaform.km_attuali) }}
+        </div>
+        <div class="col">
+            <label  class="form-label required">Veicolo</label>
+               <input type="text"
+                   id="text_descrizion" name="text_descrizion" value="" readonly class="form-control">
+           </div>
+           <div class="col">
+               <label  class="form-label required">Targa</label>
+                  <input type="text"
+                      id="text_targa" name="text_targa" value="" readonly class="form-control">
+              </div>
+   
+           <div class="col-1 div_btn_ricerca_veicolo">
+               <i class="fa-solid fa-car-side btnRicercaVeicolo" id="find_veicoli"></i>
+           </div>
+
+        <div class="col">
+            {{ form_row(testaform.id_veicolo, {'id': 'id_veicolo', 'attr': {'class': 'veicoli_display'}  }) }}
+        </div>
+         {# {{ dump(testa) }}  #}
+    </div>
+       <div class="row">
+            <div class="col">
+			     Inserimento<br>
+				 Utente:{# {{testa.uc is not null ? testa.webUserCreazione.username: 'Senza Utente'}} #}<br>
+				 Data:{{testa.getDataCreazione|date('d/m/Y H:i:s')}}
+			</div>
+			<div class="col">
+			     Modifica<br>
+				 Utente:{# {{testa.um is not null ?  testa.webUserModifica.username: 'Senza Utente'}} #}<br>
+				 Data:{{testa.getDataModifica|date('d/m/Y H:i:s')}}
+			</div>
+		</div>
+
+    <input type="hidden" name="ok_modifica" id="ok_modifica" value=0>
+    <button type="submit" class="btn btn-primary btnSalva">Salva</button>
+    <a href='{{href_Annulla}}'><button type="button" class="btn btn-secondary btnAnnulla" >Annulla</button></a>
+    <button type="button" class="btn btn-primary btnModifica" >Modifica</button>
+    <a href='{{href_Back2Lista}}'><button type="button" class="btn btn-secondary btnBack2Lista" >Torna alla lista</button></a>
+    <a href='{{href_stampa_doc}}'><button type="button" class="btn btn-success btnStampaDoc" >Stampa Documento</button></a>
+    {% if testa.getTerminato()>0 %}
+        <a href='{{href_apri_doc}}'><button type="button" class="btn btn-primary btnTerminaDoc" >Apri Documento</button></a>
+    {% else %}
+        <a href='{{href_chiudi_doc}}'><button type="button" class="btn btn-primary btnTerminaDoc" >Chiudi Documento</button></a>
+    {% endif %}
+    
+        {{ form_end(testaform)}}
+    </section>
+
+<section id="div_lista_righe">
+        <div class="row">
+            <div class="col">
+                <hr>
+                Lista righe
+                <hr>
+            </div>
+        
+        </div>
+
+        
+        
+        <button type="button" class="btn btn-primary btnAnomaliaLavagna" >Anomalia da Lavagna</button>
+        <a href='{{href_nuova_anomalia}}'><button type="button" class="btn btn-primary btnNuovaAnomalia" >Nuova Anomalia</button></a>
+
+        <div class="row">
+            <div class="col">
+
+
+    <table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Anomalia</th>
+            <th>Intervento</th>
+            <th>Ore</th>
+            <th>Operatore</th>
+            <th>Lavagna</th>
+
+            <th></th>
+    </tr>
+    </thead>
+    <tbody id="tbody_righe">
+        
+    </tbody>
+
+
+    </table>
+
+                
+            </div>
+        
+        </div>
+
+    </section>
+
+
+<section id="div_dettaglio_riga">
+
+</section>
+
+
+
+</div> {#  FINE SEZIONE DETTAGLIO #}
+
+
+{% include 'veicoli/div_ricerca_veicoli.html.twig' %}
+
+
+
+
+<div class="div_ricerca_anomalia">
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-primary btnChiudiAnomali" >Chiudi</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+
+
+
+            <table class="table" id="table_lavagna">
+                <thead>
+                    <tr>
+                        <th>Inserisci</th>
+                        <th>Anomalia</th>
+                        <th></th>
+                        
+                    </tr>
+                </thead>
+                <tbody id="list_anomalie_to_update">
+                </tbody>
+        
+            </table> 
+            
+        </div>
+    </div>
+
+
+
+    
+</div>
+
+
+
+
+    {% endblock %}
+
+
+

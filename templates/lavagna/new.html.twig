@@ -1,0 +1,149 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css" integrity="sha512-34s5cpvaNG3BknEWSuOncX28vz97bRI59UnVtEEpFX536A7BtZSJHsDyFoCl8S7Dt2TPzcrCEoHBGeM4SUBDBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<style>
+.div_ricerca_veicoli { display: none; }
+ .btnRicercaVeicolo {
+	font-size:27px;
+	padding: 30px 0;
+	cursor: pointer;
+ }
+
+ .btnRicercaVeicolo:hover {
+	color: #008102;
+ }
+
+ .div_btn_ricerca_veicolo{
+	text-align: center;
+ }
+
+</style>
+{% endblock %}
+
+
+
+
+
+
+{% block javascripts %}
+<script src="/js/lavagna/new.js" defer></script>    
+<script src="/js/veicoli/find_veicoli.js" defer></script>    
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js" integrity="sha512-LsnSViqQyaXpD4mBBdRYeP6sRwJiJveh2ZIbW41EBrNmKxgr/LFZIiWT6yr+nycvhvauz8c2nYMhrP80YhG7Cw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/locales/bootstrap-datepicker.it.min.js" integrity="sha512-0MThRHKyDbl5nH553hVBJMo2Ma7c2c5jU2bENv92XM2SVQEcQ7vepANdKiU7DLiYH9RsqESRdDpCRVkIRGtKGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+{% endblock %}
+
+
+{% block body %}
+
+<span><h1>
+	{{title_form}}
+</h1></span>
+{{ form_start(form) }}
+
+<div class="my-custom-class-for-errors">
+	{{ form_errors(form) }}
+</div>
+
+<div class="div_dettaglio">
+
+	<div class="row">
+		<div class="col">
+            {{ form_row(form.data_lavagna) }}
+			  
+        </div>	
+      <div class="col">
+         <label  class="form-label required">Veicolo</label>
+			<input type="text"
+				id="text_descrizion" name="text_descrizion" value="" readonly class="form-control">
+		</div>
+		<div class="col">
+			<label  class="form-label required">Targa</label>
+			   <input type="text"
+				   id="text_targa" name="text_targa" value="" readonly class="form-control">
+		   </div>
+
+		<div class="col-1 div_btn_ricerca_veicolo">
+			<i class="fa-solid fa-car-side btnRicercaVeicolo" id="find_veicoli"></i>
+		</div>
+		<div class="col-2">
+			{{ form_row(form.idVeicolo, {'id': 'id_veicolo', 'attr': {'class': 'veicoli_display'}  }) }}
+		</div>
+
+	</div>
+	     <div class="row">
+            <div class="col">
+			     {{ form_row(form.anomalia, { 'label': 'Anomalia: ', 'id': 'edit_anomalia' })}}
+			    </div>
+		</div>
+		 {# {{ dump(lavagna) }}  #}
+ 		<div class="row">
+            <div class="col">
+			     Inserimento<br>
+				 Utente: {{ lavagna.uc is not null ? lavagna.webUserCreazione.username : 'Senza Utente' }}<br>
+				 
+
+				 Data: {{lavagna.dc|date('d/m/Y H:i:s')}}
+			</div>
+			<div class="col">
+			     Modifica<br>
+				 Utente: {{ lavagna.uc is not null ? lavagna.webUserModifica.username : 'Senza Utente' }}<br>
+				 Data: {{lavagna.dm|date('d/m/Y H:i:s')}}
+			</div>
+		</div>
+
+	
+		<div class="row">
+            <div class="col">
+			    <input type="submit" class="btn btn-primary" value="OK">
+			    <a href="{{href_lavagna_index}}"> <input type="button" class="btn btn-secondary" id="btnAnnulla" value="Annulla"></a>
+		    </div>
+		</div>
+
+{# {{ dump(href_lavagna_index) }} #}
+
+
+	{{ form_end(form) }}
+	
+		
+</div>
+{# chiusura div dettaglio#}
+
+
+{% include 'veicoli/div_ricerca_veicoli.html.twig' %}
+
+{#
+<div class="xxxdiv_ricerca">
+   <div class="row">
+		
+      <div class="col">
+<table class="table table-hover" id="table_veicoli">
+		<thead>
+			<tr>
+				<th></th>
+				<th>Descrizione</th>
+				<th>Targa</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tr>
+			<td></td>
+			<td><input type="text" id="xxxdescrizione_finder" name="descrizione_finder"></td>
+			<td><input type="text" id="xxxtarga_finder" name="targa_finder"></td>
+			<td></td>
+		</tr>
+		<tbody id ="to_update">
+		</tbody>
+</div>
+</div>
+</div>
+#}
+
+{# chiusura div ricerca#}
+
+{% endblock %}

@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="GRENT\Occupazione" table="occupazione">
+    <id name="idOccupazione" type="integer" column="id_occupazione">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="idVeicolo" type="integer" column="id_veicolo" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="idTipoVeicolo" type="string" column="id_tipo_veicolo" length="2" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="idGruppoVeicolo" type="string" column="id_gruppo_veicolo" length="2" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="descrTipoVeicolo" type="string" column="descr_tipo_veicolo" length="50" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="dal" type="datetime" column="dal" nullable="true"/>
+    <field name="dalDove" type="string" column="dal_dove" length="250" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="al" type="datetime" column="al" nullable="true"/>
+    <field name="alDove" type="string" column="al_dove" length="250" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="alPrevisto" type="datetime" column="al_previsto" nullable="true">
+      <options>
+        <option name="comment">rientro previsto</option>
+      </options>
+    </field>
+    <field name="km1" type="integer" column="km1" nullable="true">
+      <options>
+        <option name="unsigned"/>
+        <option name="comment">km partenza veicolo</option>
+      </options>
+    </field>
+    <field name="km2" type="integer" column="km2" nullable="true">
+      <options>
+        <option name="unsigned"/>
+        <option name="comment">km arrivo veicolo</option>
+      </options>
+    </field>
+    <field name="kmpercorsi" type="integer" column="kmpercorsi" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="idAutista" type="integer" column="id_autista" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="avvisato" type="boolean" column="avvisato" nullable="true">
+      <options>
+        <option name="comment">autista1 avvistao</option>
+      </options>
+    </field>
+    <field name="idAutista2" type="integer" column="id_autista2" nullable="true">
+      <options>
+        <option name="unsigned"/>
+        <option name="comment">eventuale secondo autista</option>
+      </options>
+    </field>
+    <field name="idCli" type="string" column="id_cli" length="6" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+        <option name="comment">fatturazione</option>
+      </options>
+    </field>
+    <field name="rifNome" type="string" column="rif_nome" length="50" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="rifTel" type="string" column="rif_tel" length="20" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="passeggero" type="string" column="passeggero" length="50" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+        <option name="comment">nome </option>
+      </options>
+    </field>
+    <field name="numPersone" type="string" column="num_persone" length="10" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="servizio" type="string" column="servizio" length="100" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+        <option name="comment">tipo di servizio</option>
+      </options>
+    </field>
+    <field name="linguaggio" type="string" column="linguaggio" length="10" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+        <option name="comment">richiesto dall'autista</option>
+      </options>
+    </field>
+    <field name="note" type="string" column="note" length="4000" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="descrizion" type="string" column="descrizion" length="50" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="tariffa" type="string" column="tariffa" length="10" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="stato" type="string" column="stato" length="2" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="statoFatture" type="string" column="stato_fatture" length="2" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="tipo" type="string" column="tipo" length="10" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="idCc" type="integer" column="id_cc" nullable="true">
+      <options>
+        <option name="unsigned"/>
+        <option name="comment">carta di credito</option>
+      </options>
+    </field>
+    <field name="idParent" type="integer" column="id_parent" nullable="true">
+      <options>
+        <option name="unsigned"/>
+        <option name="comment">per sostituzioni, id contratto principale</option>
+      </options>
+    </field>
+    <field name="numSostituzione" type="integer" column="num_sostituzione" nullable="true">
+      <options>
+        <option name="unsigned"/>
+        <option name="comment">numero contratto di sostituzione</option>
+      </options>
+    </field>
+    <field name="numContratto" type="string" column="num_contratto" length="10" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+        <option name="comment">numero del contratto</option>
+      </options>
+    </field>
+    <field name="idMetodopag" type="string" column="id_metodopag" length="4" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+        <option name="comment">metodo di pagamento</option>
+      </options>
+    </field>
+    <field name="cliente" type="string" column="cliente" length="50" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="piva" type="string" column="piva" length="17" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="indirizzo" type="string" column="indirizzo" length="50" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="cap" type="string" column="cap" length="50" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="citta" type="string" column="citta" length="50" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="tel" type="string" column="tel" length="15" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="fax" type="string" column="fax" length="15" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="dc" type="datetime" column="dc" nullable="true"/>
+    <field name="uc" type="string" column="uc" length="15" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="dm" type="datetime" column="dm" nullable="true"/>
+    <field name="um" type="string" column="um" length="15" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="capcontanti" type="decimal" column="capcontanti" precision="18" scale="2" nullable="true"/>
+    <field name="capassegno" type="decimal" column="capassegno" precision="18" scale="2" nullable="true"/>
+    <field name="capextradep" type="decimal" column="capextradep" precision="18" scale="2" nullable="true"/>
+    <field name="capNoteassegno" type="string" column="cap_noteassegno" length="50" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="idPrevS" type="integer" column="id_prev_s" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="totCaparra" type="decimal" column="tot_caparra" precision="18" scale="2" nullable="true"/>
+    <field name="noteContratto1" type="string" column="note_contratto1" length="100" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="noteContratto2" type="string" column="note_contratto2" length="100" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="capNotecontanti" type="string" column="cap_notecontanti" length="50" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="capNoteextradep" type="string" column="cap_noteextradep" length="50" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="c21ImportoTot" type="decimal" column="c21_importo_tot" precision="18" scale="2" nullable="true"/>
+    <field name="c22ImportoPagato" type="decimal" column="c22_importo_pagato" precision="18" scale="2" nullable="true"/>
+    <field name="c23ImportoAnicipato" type="decimal" column="c23_importo_anicipato" precision="18" scale="2" nullable="true"/>
+    <field name="garanzia" type="smallint" column="garanzia" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="c22ImportoUguale" type="smallint" column="c22_importo_uguale" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="feIddocumento" type="string" column="fe_iddocumento" length="20" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="feData" type="datetime" column="fe_data" nullable="true"/>
+    <field name="feCig" type="string" column="fe_cig" length="15" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="feCup" type="string" column="fe_cup" length="15" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="feTipoDati" type="integer" column="fe_tipo_dati" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="feCcc" type="string" column="fe_ccc" length="100" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="numPreventivo" type="string" column="num_preventivo" length="10" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="idT" type="integer" column="id_t" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="fsv" type="integer" column="fsv" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="snaut1" type="string" column="snaut1" length="1" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="snaut2" type="string" column="snaut2" length="1" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

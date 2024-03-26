@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="GRENT\PrevX" table="prev_x">
+    <id name="idPrevX" type="integer" column="id_prev_x">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="idPrev" type="integer" column="id_prev" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="codicearti" type="string" column="codicearti" length="20" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="quantita" type="decimal" column="quantita" precision="18" scale="2" nullable="true"/>
+    <field name="prezzoun" type="decimal" column="prezzoun" precision="18" scale="2" nullable="true"/>
+    <field name="prezzotot" type="decimal" column="prezzotot" precision="18" scale="2" nullable="true"/>
+  </entity>
+</doctrine-mapping>

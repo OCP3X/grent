@@ -1,0 +1,34 @@
+$siPath = public_path('logo/si.png');
+          // Ruta de la imagen no
+        $noPath = public_path('logo/no.png');
+
+                
+        $attiprovp = $value['attiprov'] > 0 ? $templateProcessor->setImageValue('attiprov_punteggio', $siPath) : $templateProcessor->setImageValue('attiprov_punteggio', $siPath);
+        $certstp = $value['certst'] > 0 ? $templateProcessor->setImageValue('certst_punteggio', $siPath) : $templateProcessor->setImageValue('certst_punteggio', $siPath);
+        $visurep = $value['visure'] > 0 ? $templateProcessor->setImageValue('visure_punteggio', $siPath) : $templateProcessor->setImageValue('visure_punteggio', $siPath);
+        $planimetriep = $value['planimetrie'] > 0 ? $templateProcessor->setImageValue('visure_punteggio', $siPath) : $templateProcessor->setImageValue('visure_punteggio', $siPath);
+        $titoliedp = $value['titolied'] > 0 ? $templateProcessor->setImageValue('visure_punteggio', $siPath) : $templateProcessor->setImageValue('visure_punteggio', $siPath);
+        $certagp = $value['certag'] > 0 ? $templateProcessor->setImageValue('visure_punteggio', $siPath) : $templateProcessor->setImageValue('visure_punteggio', $siPath);
+        $appridricop = $value['appridrico'] > 0 ? $templateProcessor->setImageValue('visure_punteggio', $siPath) : $templateProcessor->setImageValue('visure_punteggio', $siPath);
+        $smaltimentoacquep = $value['smaltimentoacque'] > 0 ? $templateProcessor->setImageValue('visure_punteggio', $siPath) : $templateProcessor->setImageValue('visure_punteggio', $siPath);
+        $domcondonop = $value['domcondono'] > 0 ? $templateProcessor->setImageValue('visure_punteggio', $siPath) : $templateProcessor->setImageValue('visure_punteggio', $siPath);
+        $condonop = $value['condono'] > 0 ? $templateProcessor->setImageValue('visure_punteggio', $siPath) : $templateProcessor->setImageValue('visure_punteggio', $siPath);
+        $domsanp = $value['domsan'] > 0 ? $templateProcessor->setImageValue('visure_punteggio', $siPath) : $templateProcessor->setImageValue('visure_punteggio', $siPath);
+        $sanp = $value['san'] > 0 ? $templateProcessor->setImageValue('visure_punteggio', $siPath) : $templateProcessor->setImageValue('visure_punteggio', $siPath);
+        $convenzionip = $value['convenzioni'] > 0 ? $templateProcessor->setImageValue('visure_punteggio', $siPath) : $templateProcessor->setImageValue('visure_punteggio', $siPath);
+        $accordop = $value['accordo'] > 0 ? $templateProcessor->setImageValue('visure_punteggio', $siPath) : $templateProcessor->setImageValue('visure_punteggio', $siPath);
+        $certdesturbp = $value['certdesturb'] > 0 ? $templateProcessor->setImageValue('visure_punteggio', $siPath) : $templateProcessor->setImageValue('visure_punteggio', $siPath);
+        $attiobblp = $value['attiobbl'] > 0 ? $templateProcessor->setImageValue('visure_punteggio', $siPath) : $templateProcessor->setImageValue('visure_punteggio', $siPath);
+        $altridocurbp = $value['altridocurb'] > 0 ? $templateProcessor->setImageValue('visure_punteggio', $siPath) : $templateProcessor->setImageValue('visure_punteggio', $siPath);
+        $plancat2p = $value['plancat2'] > 0 ? $templateProcessor->setImageValue('visure_punteggio', $siPath) : $templateProcessor->setImageValue('visure_punteggio', $siPath);
+        $planaltrep = $value['planaltre'] > 0 ? $templateProcessor->setImageValue('visure_punteggio', $siPath) : $templateProcessor->setImageValue('visure_punteggio', $siPath);
+        $gravamip = $value['gravami'] > 0 ? $templateProcessor->setImageValue('visure_punteggio', $siPath) : $templateProcessor->setImageValue('visure_punteggio', $siPath);
+        $altridocp = $value['altridoc'] > 0 ? $templateProcessor->setImageValue('visure_punteggio', $siPath) : $templateProcessor->setImageValue('visure_punteggio', $siPath);
+        $apep = $value['ape'] > 0 ? $templateProcessor->setImageValue('visure_punteggio', $siPath) : $templateProcessor->setImageValue('visure_punteggio', $siPath);
+        $docimpiantip = $value['docimpianti'] > 0 ? $templateProcessor->setImageValue('visure_punteggio', $siPath) : $templateProcessor->setImageValue('visure_punteggio', $siPath);
+        $contrlocp = $value['contrloc'] > 0 ? $templateProcessor->setImageValue('visure_punteggio', $siPath) : $templateProcessor->setImageValue('visure_punteggio', $siPath);
+        $statooccp = $value['statoocc'] > 0 ? $templateProcessor->setImageValue('visure_punteggio', $siPath) : $templateProcessor->setImageValue('visure_punteggio', $siPath);
+        $doceconomicip = $value['doceconomici'] > 0 ? $templateProcessor->setImageValue('visure_punteggio', $siPath) : $templateProcessor->setImageValue('visure_punteggio', $siPath);
+        $relperiziep = $value['relperizie'] > 0 ? $templateProcessor->setImageValue('visure_punteggio', $siPath) : $templateProcessor->setImageValue('visure_punteggio', $siPath);
+        $regcondominiop = $value['regcondominio'] > 0 ? $templateProcessor->setImageValue('visure_punteggio', $siPath) : $templateProcessor->setImageValue('visure_punteggio', $siPath);
+        $corrispondenzap = $value['corrispondenza'] > 0 ? $templateProcessor->setImageValue('visure_punteggio', $siPath) : $templateProcessor->setImageValue('visure_punteggio', $siPath);
